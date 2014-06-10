@@ -22,7 +22,6 @@ module.exports = (grunt) ->
           "concat"
           "less:compileCore"
           "less:compileCustom"
-          "watch"
         ]
         options:
           nospawn: true
@@ -163,6 +162,7 @@ module.exports = (grunt) ->
 
   grunt.registerTask "default", [
     "dev"
+    "watch"
   ]
 
   grunt.registerTask "production", [
