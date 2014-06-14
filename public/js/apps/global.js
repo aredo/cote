@@ -6,7 +6,7 @@ if (typeof App != "object") {
 }
 
 App.BaseUrl = location.protocol + '//' + location.host;
-App.API_BaseUrl = location.protocol + '//' + location.host + '/api';
+App.API_BaseUrl = 'http://api.findbuzzer.local:9696/v1';
 App.User = {};
 App.Mustache = $.Mustache;
 App.Mustache.directory = App.BaseUrl + '/mustache';
@@ -24,17 +24,19 @@ if(window.isLogin) {
 
   } else {
     $.ajax({
-        url : App.API_BaseUrl + '/user/current/'
+        url : App.API_BaseUrl + '/users/show'
       , type: 'GET'
+      , data: {
+          user_id : window.userID
+        }
       , cache: true
       , async: false
       , success: function (res) {
-        delete res.data.hashed_password
         var data = res.data;
 
         App.User.session = res.data;
 
-        $.jStorage.set("current_user", App.User.session, {TTL : 60000});
+        $.jStorage.set("current_user", App.User.session);
       }
     });
   }
