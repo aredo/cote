@@ -12,20 +12,25 @@ App.Mustache = $.Mustache;
 App.Mustache.directory = App.BaseUrl + '/mustache';
 
 
-if(window.isLogin) {
+$.ajaxSetup({
+    headers: { 'Authorization': "Basic XXXXX" }
+});
 
-  var currentUser = $.jStorage.get('current_user');
+// if(window.isLogin) {
 
-  if( _.isObject(currentUser) ) {
+//   var currentUser = $.jStorage.get('current_user');
 
-    App.User.session = currentUser;
+//   if( _.isObject(currentUser) ) {
 
-    console.log(App.User.session);
+//     App.User.session = currentUser;
 
-  } else {
+//     console.log(App.User.session);
+
+//   } else {
     $.ajax({
         url : App.API_BaseUrl + '/users/show'
       , type: 'GET'
+      , headers: {'accept': 'application/json'}
       , data: {
           user_id : window.userID
         }
@@ -36,11 +41,11 @@ if(window.isLogin) {
 
         App.User.session = res.data;
 
-        $.jStorage.set("current_user", App.User.session);
+        // $.jStorage.set("current_user", App.User.session);
       }
     });
-  }
-};
+//   }
+// };
 
 NProgress.configure({ ease: 'ease', speed: 500, trickle: false });
 NProgress.start();

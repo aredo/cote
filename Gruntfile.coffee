@@ -48,15 +48,15 @@ module.exports = (grunt) ->
         ]
         dest: "public/js/bootstrap.js"
 
-      apps:
+      buzzer:
         src: [
           "public/js/plugins/nprogress.js"
-          "public/js/apps/global.js"
-          "public/js/apps/user.js"
-          "public/js/apps/home.js"
-          "public/js/apps/trick.js"
+          "public/js/buzzer/global.js"
+          "public/js/buzzer/user.js"
+          "public/js/buzzer/home.js"
+          "public/js/buzzer/trick.js"
         ]
-        dest: "public/js/apps.js"
+        dest: "public/js/buzzer.js"
 
       plugins:
         src: [
@@ -83,9 +83,9 @@ module.exports = (grunt) ->
         src: [
           "<%= concat.bootstrap.dest %>"
           "public/js/plugins.js"
-          "public/js/apps.js"
+          "public/js/buzzer.js"
         ]
-        dest: "public/assets/js/apps.min.js"
+        dest: "public/assets/js/buzzer.min.js"
 
     less:
       compileCore:
@@ -104,18 +104,18 @@ module.exports = (grunt) ->
           strictMath: true
           sourceMap: true
           outputSourceFiles: true
-          sourceMapURL: "apps.css.map"
-          sourceMapFilename: "public/css/apps.css.map"
+          sourceMapURL: "buzzer.css.map"
+          sourceMapFilename: "public/css/buzzer.css.map"
 
         files:
-          "public/css/apps.css": "public/less/apps.less"
+          "public/css/buzzer.css": "public/less/buzzer.less"
 
     cssmin:
       combine:
         files:
-          "public/assets/css/apps.min.css": [
+          "public/assets/css/buzzer.min.css": [
             "public/css/bootstrap.css"
-            "public/css/apps.css"
+            "public/css/buzzer.css"
           ]
 
     copy:
@@ -137,7 +137,7 @@ module.exports = (grunt) ->
 
     clean:
       dev: [
-        "public/js/apps.js"
+        "public/js/buzzer.js"
         "public/js/bootstrap.js"
         "public/js/plugins.js"
         "public/css/*"
