@@ -9,9 +9,12 @@
   margin: 0 auto;
   padding: 40px 0 10px 0;
   background: @body-bg;
+  z-index: 3;
 
   .container {
     padding-left: 0;
+    position: relative;
+    z-index: 4;
     padding-right: 0;
   }
 }
@@ -45,6 +48,8 @@ footer {
     display: inline-block;
     color: #fff !important;
     text-align: left;
+    line-height: 35px;
+    font-size: @font-size-lg;
     padding: 5px 10px !important;
 
     &:hover {
@@ -243,7 +248,60 @@ Bootbox (Confirm Dialog)
 
 
 
-#sidebar ul {
-  margin: 0;
-  padding: 0;
+#sidebar {
+  max-height: 100%;
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.site-main {
+  height: 100%;
+  position: relative;
+
+  .promo-title {
+    margin: 0;
+    padding: 0;
+    font-size: (@font-size-lg * 3);
+    line-height: (@font-size-lg * 3);
+  }
+}
+
+.promo-bg {
+  background-position: center;
+  background-image: url(../img/home-promo-bg.png);
+  background-size: cover;
+  height: 100% !important;
+  width: 100% !important;
+  position: absolute;
+  z-index: 1;
+}
+
+.promo-content {
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.5);
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.image-banner {
+  height: 450px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  background: rgba(0,0,0,0.9);
+
+  .image-banner-src {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-position: center;
+    background-image: url(../img/banner.jpg);
+  }
 }
