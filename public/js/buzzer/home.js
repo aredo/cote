@@ -1,53 +1,46 @@
-$(function() {
 
-  $('#flash-message').delay(7000).fadeOut(5000);
-
-  Home.init();
-
-  NProgress.set(0.3);
-
-});
-
-
-var Home = App.Home = {
-  init: function() {
-    var This = Home;
-    var Trick = App.Trick;
-
-    This.renderAllTricks();
+var Sidebar = {
+  init: function () {
+    this.snapper();
+    this.bindLogoClick();
+    var Snapper = this.snapper();
+    Snapper.off('drag');
   },
-  renderAllTricks: function() {
-
-    var blockHome = $('#home-page');
-
-    if(blockHome.length > 0) {
-      $.Mustache
-        .load(App.Mustache.directory + "/tricks.mustache")
-        .fail(function () {
-          console.log('Failed to load templates from <code>' + Trick.mustacheTemplateDir + '</code>');
-        })
-        .done(function () {
-          Home.getAllTrick(blockHome);
-        });
+  addEvent : function addEvent(element, eventName, func) {
+    if (element.addEventListener) {
+        return element.addEventListener(eventName, func, false);
+    } else if (element.attachEvent) {
+        return element.attachEvent("on" + eventName, func);
     }
   },
-  getAllTrick: function(el){
-    $.ajax({
-      url: App.API_BaseUrl + '/trick',
-      method: 'GET',
-      cache: false,
-      dataType: "JSON",
-      beforeSend: function( xhr ) {
+  snapper: function() {
+    var snapper = new Snap({
+      element: document.getElementById(App.pageContainerId),
+      disable: 'right',
+      dragger: document.getElementById('draggerSnap'),
+      maxPosition: 281,
+      minPosition: -281,
+    });
+
+    return snapper;
+  },
+  bindLogoClick: function() {
+    var Snapper = Sidebar.snapper();
+
+
+    Sidebar.addEvent(document.getElementById(App.brandLogoId), 'click', function(e) {
+
+      var stateSnap = Snapper.state();
+
+      if(stateSnap.state === 'closed') {
+        Snapper.open('left');
+      } else {
+        Snapper.close();
       }
-    })
-    .done(function(res) {
-      var list_tricks = res.data;
-
-      App.Trick.renderTrick(el, list_tricks);
-
-    })
-    .fail (function(jqXHR, textStatus) {
-      Notifier.show('there is something wrong to load catalogue, please try again', 'err');
-    })
+      e.preventDefault();
+    });
   }
 }
+$(function() {
+  Sidebar.init();
+});

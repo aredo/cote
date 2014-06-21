@@ -1,0 +1,55 @@
+.snap-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  z-index: 2;
+  transform: translate3d(0, 0, 0);
+}
+
+.snap-drawers {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+}
+
+.snap-drawer {
+  position: absolute;
+  top: 0;
+  right: auto;
+  bottom: 0;
+  left: auto;
+  width: 280px;
+  height: auto;
+  // display: none;
+  transition: width 0.3s ease;
+}
+
+// body {
+//   &.snapjs-left,
+//   &.snapjs-right {
+//     .snap-drawer {
+//       display: block;
+//     }
+//   }
+// }
+
+.snap-drawer-left {
+  left: 0;
+  z-index: 1;
+}
+
+.snapjs-left.snap-drawer-right {
+    display: none;
+}
+
+.snapjs-expand-left.snap-drawer-left {
+    width: 100 % ;
+}

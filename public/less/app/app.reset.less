@@ -1,0 +1,198 @@
+// reset
+html, body {
+  height: 100%;;
+}
+
+html {
+  background-color: @body-bg;
+  overflow-x: hidden;
+}
+body {
+  font-family: @font-family-base;
+  font-size: @font-size-base;
+  color: @text-color;
+  background-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  line-height: @line-height-base;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6{
+  margin: 0;
+}
+
+// Links
+// -------------------------
+
+a {
+  color: @link-color;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: @link-hover-color;
+  text-decoration: none;
+}
+
+label{font-weight: normal;}
+small, .small{font-size: @font-size-sm;}
+
+.badge, .label{font-weight: bold;}
+.badge{
+  background-color: @badge-bg;
+  &.up{
+    position: relative;
+    top: -10px;
+    padding:3px 6px;
+    margin-left: -10px;
+  }
+}
+
+.badge-sm{
+  font-size: 85%;
+  padding: 2px 5px !important;
+}
+
+.label-sm{
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.badge-white {
+  background-color: transparent;
+  border: 1px solid rgba(255,255,255,0.35);
+  padding: 2px 6px;
+}
+
+.badge-empty {
+  background-color: transparent;
+  border: 1px solid rgba(0,0,0,0.15);
+  color: inherit;
+}
+
+.caret-white{
+  border-top-color: #fff;
+  border-top-color: rgba(255,255,255,.65);
+  a:hover & {
+    border-top-color: #fff;
+  }
+}
+
+.navbar-nav {
+  > li {
+    > .dropdown-menu {
+      .box-shadow(none);
+    }
+  }
+  &.nav-user {
+    .dropdown-menu {
+      width: 100%
+    }
+  }
+}
+
+
+.nav-tabs {
+  &.nav-justified {
+    > .active {
+      > a {
+        border-color: transparent transparent @brand-dark transparent;
+        background: none;
+
+        &:hover {
+          border-color: transparent transparent @brand-dark transparent;
+          background: none
+        }
+      }
+    }
+    > li {
+      > a {
+        &:hover {
+          border-color: transparent transparent #ddd transparent;
+          background: none
+        }
+      }
+    }
+  }
+}
+
+.btn-dark{
+  .button-variant(@btn-dark-color, @btn-dark-bg, @btn-dark-border);
+}
+
+.dropdown-menu{
+  font-size: 13px;
+  border-radius: @border-radius-base;
+  .box-shadow(0 2px 6px rgba(0, 0, 0, 0.1));
+  border: 1px solid #ddd;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  &.pull-left{
+    left:100%;
+  }
+  > .panel{
+    border: none;
+    margin: -5px 0;
+  }
+  > li > a{
+    padding: 5px 15px;
+  }
+  > li > a:hover,
+  > li > a:focus,
+  > .active > a,
+  > .active > a:hover,
+  > .active > a:focus{
+    background-image: none;
+    filter:none;
+    background-color: @brand-light !important;
+    color: @link-hover-color;
+  }
+}
+
+.dropdown-header{
+  padding: 5px 15px;
+}
+
+.dropdown-submenu{
+  position: relative;
+  &:hover,
+  &:focus{
+    > a{
+      background-color: @brand-light !important;
+      color: @text-color;
+    }
+    > .dropdown-menu {
+      display: block;
+    }
+  }
+  &.pull-left{
+    float: none !important;
+    > .dropdown-menu{
+      left: -100%;
+      margin-left: 10px;
+    }
+  }
+  .dropdown-menu{
+    left:100%;
+    top:0;
+    margin-top: -6px;
+    margin-left: -1px
+  }
+
+  .dropup & {
+    > .dropdown-menu{
+      top: auto;
+      bottom: 0;
+    }
+  }
+}
+
+.dropdown-select > li > a input{position: absolute;left: -9999em;}
+
+
+.form-control {
+  .box-shadow(none) !important;
+  border-radius: @border-radius-base;
+
+  &:focus {
+    border-color: @input-border-focus;
+  }
+}

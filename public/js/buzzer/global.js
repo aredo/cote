@@ -10,44 +10,49 @@ App.API_BaseUrl = 'http://api.findbuzzer.local:9696/v1';
 App.User = {};
 App.Mustache = $.Mustache;
 App.Mustache.directory = App.BaseUrl + '/mustache';
+App.pageContainerId = "page"
+App.brandLogoId = 'brandLogo'
 
+// $.ajaxSetup({
+//     headers: { 'Authorization': "token:" + md5('1234567') }
+// });
 
-$.ajaxSetup({
-    headers: { 'Authorization': "Basic XXXXX" }
-});
+if(window.isLogin) {
 
-// if(window.isLogin) {
+  var currentUser = $.jStorage.get('current_user');
 
-//   var currentUser = $.jStorage.get('current_user');
+  if( _.isObject(currentUser) ) {
 
-//   if( _.isObject(currentUser) ) {
+    App.User.session = currentUser;
 
-//     App.User.session = currentUser;
+    console.log(App.User.session);
 
-//     console.log(App.User.session);
-
-//   } else {
+  } else {
     $.ajax({
         url : App.API_BaseUrl + '/users/show'
-      , type: 'GET'
-      , headers: {'accept': 'application/json'}
       , data: {
           user_id : window.userID
         }
       , cache: true
       , async: false
-      , success: function (res) {
-        var data = res.data;
+    })
+    .done( function (res) {
+      var data = res.data;
 
-        App.User.session = res.data;
+      App.User.session = res.data;
 
-        // $.jStorage.set("current_user", App.User.session);
-      }
+      $.jStorage.set("current_user", App.User.session);
     });
-//   }
-// };
+  }
+};
 
-NProgress.configure({ ease: 'ease', speed: 500, trickle: false });
+NProgress.configure({
+    ease: 'ease'
+  , speed: 500
+  , trickle: false
+  , showSpinner: false
+});
+
 NProgress.start();
 
 $(window).load(function() {

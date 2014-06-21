@@ -1,30 +1,14 @@
-html,
-body {
-  height: 100%;
-  font-family: "Open Sans", @font-family-sans-serif;
-}
-
-body {
-  padding-top: 70px;
-  background: #fafafa
-}
 .navbar-brand {
-  padding: 0 15px;
-}
-
-a {
-  &:hover {
-    text-decoration: none;
-    color: @gray;
-  }
+  padding: 5px 20px 0 20px;
 }
 
 #page {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -100px;
-  padding: 0 0 140px;
+  margin: 0 auto;
+  padding: 40px 0 10px 0;
+  background: @body-bg;
 
   .container {
     padding-left: 0;
@@ -43,9 +27,16 @@ a {
 
 footer {
   font-size: 12px;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  height: 100px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  ul {
+    margin-bottom: 0;
+  }
 }
 
 .btn {
@@ -154,7 +145,7 @@ form {
       font-weight: normal;
       font-size: @font-size-sm;
       margin-top: 3px;
-      color: @error-color;
+      color: @brand-danger;
     }
   }
 }
@@ -212,7 +203,7 @@ Bootbox (Confirm Dialog)
   left: 50%;
   font-size: 14px;
   padding: 8px 1.3em;
-  z-index: 99999;
+  z-index: 9999;
 }
 
 
@@ -251,3 +242,8 @@ Bootbox (Confirm Dialog)
 }
 
 
+
+#sidebar ul {
+  margin: 0;
+  padding: 0;
+}
