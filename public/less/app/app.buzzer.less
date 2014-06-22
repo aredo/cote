@@ -86,119 +86,9 @@ footer {
   }
 }
 
-.form-signin,
-.form-reset-password {
-  max-width: 375px;
-  padding: 15px;
-  margin: 0 auto;
-
-  .alert {
-    width: 315px;
-    margin: 0 auto;
-  }
-
-  .forgot-password {
-    display: block;
-    text-align: center;
-  }
-
-  .form-signin-heading,
-  .checkbox {
-    margin-bottom: 10px;
-  }
-  .checkbox {
-    font-weight: normal;
-  }
-
-  .form-control,
-  .form-control {
-    position: relative;
-    border: none;
-    box-shadow: none !important;
-    height: auto;
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
-    padding: 10px;
-    font-size: 16px;
-  }
-
-  .form-control:focus {
-    z-index: 2;
-    outline: none;
-    box-shadow: none !important;
-    border: none;
-  }
-  input[type="email"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  input[type="password"] {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
-
-  button[type="submit"] {
-    width: 70%;
-    margin: 0 auto 20px;
-    outline: 0;
-
-    &.btn-reset-password {
-      width: 100%;
-    }
-  }
-}
-
-form {
-  label {
-    &.error {
-      font-weight: normal;
-      font-size: @font-size-sm;
-      margin-top: 3px;
-      color: @brand-danger;
-    }
-  }
-}
-
-.form-forgot-password {
-  max-width: 400px;
-  padding: 15px;
-  margin: 0 auto;
-
-  .form-control {
-    box-shadow: none !important;
-  }
-}
-
-.trick-item {
-  width: 282px;
-  float: left;
-
-  a {
-    text-decoration: none;
-
-    &:hover {
-      color: #333;
-    }
-  }
-
-  .thumb-btn {
-    height: 250px;
-    display: block;
-    overflow-y: hidden;
-  }
-  .avatar {
-    height: 34px;
-  }
-
-  .b-t.pad-10,
-  .panel-body {
-    background: #fff;
-  }
-}
 .avatar{
-  width: 30px;
+  width: 40px;
+  height: 40px;
   margin-top: -5px;
   margin-right: 5px;
 }
@@ -322,6 +212,10 @@ Bootbox (Confirm Dialog)
   background-size: cover;
   position: absolute;
   z-index: 1;
+
+  &.not-found-404 {
+    background-image: url(../img/404.jpg);
+  }
 }
 
 .promo-content {
@@ -341,12 +235,43 @@ Bootbox (Confirm Dialog)
   }
 }
 
-.promo-fill {
+.promo-fill, .not-found-fill {
   width: 100% !important;
   max-height: 100%;
   display: inline-block;
   vertical-align: top;
   z-index: 5;
+}
+.not-found-fill {
+  vertical-align: middle;
+
+  .buzzme-logo {
+    position: absolute;
+    left: 50%;
+    top: 50px;
+    margin-left: -50px;
+    z-index: 10;
+  }
+  .fa-frown-o,
+  .pull-left {
+    font-size: 140px;
+    line-height: 120px;
+    font-weight: 100;
+  }
+  .pull-left {
+    font-weight: 400;
+  }
+  p {
+    font-size: 50px;
+    line-height: 50px;
+  }
+  .error-message-text {
+    font-size: 30px;
+    font-weight: 200;
+  }
+  a {
+    color: @brand-primary;
+  }
 }
 
 .image-banner {
@@ -381,5 +306,29 @@ Bootbox (Confirm Dialog)
     right: 0;
     z-index: 3;
     background: rgba(0,0,0,0.5);
+  }
+}
+
+
+.nav {
+  &.nav-user {
+    .avatar {
+      background: @brand-primary;
+      img {
+        .transition(all 0.5s ease);
+        &:hover {
+          .opacity(0.5);
+        }
+      }
+    }
+    &.buzzer {
+      > li {
+        > a {
+          &:hover, &:focus {
+            background: none
+          }
+        }
+      }
+    }
   }
 }
