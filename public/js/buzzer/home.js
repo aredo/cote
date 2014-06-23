@@ -18,8 +18,8 @@ var Sidebar = {
       element: document.getElementById(App.pageContainerId),
       disable: 'right',
       dragger: document.getElementById('draggerSnap'),
-      maxPosition: 281,
-      minPosition: -281,
+      maxPosition: 280,
+      minPosition: -280,
     });
 
     return snapper;

@@ -91,6 +91,11 @@ footer {
   height: 40px;
   margin-top: -5px;
   margin-right: 5px;
+
+  &.avatar-micro {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 /*
@@ -140,24 +145,6 @@ Bootbox (Confirm Dialog)
   float: none;
   clear: both;
   width: 300px;
-}
-
-
-
-#sidebar {
-  position: fixed;
-  z-index:auto;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  outline: none;
-  background-color: #191918;
-
-  max-height: 100%;
-  ul {
-    margin: 0;
-    padding: 0;
-  }
 }
 
 .site-main {
@@ -331,4 +318,56 @@ Bootbox (Confirm Dialog)
       }
     }
   }
+}
+
+.tab-content {
+  margin-bottom: 60px;
+
+  .networks-profile-setting {
+
+  }
+
+  .service {
+    &:nth-child(2n) {
+      background: @brand-light
+    }
+  }
+
+  .connected-network {
+    font-size: 25px;
+    width: 50px;
+    display: inline-block;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+    float: left;
+
+    &.tw {
+      background:#55acee;
+    }
+    &.fb, &.fp {
+      background:#3b5998;
+    }
+    &.ig {
+      background:#3c729a;
+    }
+    &.yt {
+      background:#dd3027;
+    }
+    &.gp {
+      background:#cd2e15;
+    }
+    &.lk {
+      background:#0181b2;
+    }
+    &.fs {
+      background:#2398c9;
+    }
+
+  }
+  .network-name {
+    line-height: 50px;
+    width: 100px;
+  }
+
 }

@@ -15,7 +15,14 @@ App.User = _.extend( App.User, {
 
       $('body').scrollTop(scrollmem);
 
-      window.location.hash = this.hash;
+      console.log(this.hash);
+
+      try{
+        window.history.pushState({}, document.title, this.hash);
+
+      } catch(e) {
+        window.location.hash = this.hash;
+      }
 
     });
   }
