@@ -49,7 +49,7 @@ module.exports = function(grunt) {
       buzzer: {
         src: [
            "public/js/plugins/nprogress.js"
-          ,"public/js/buzzer/global.js"
+          ,"public/js/shared/global.js"
           ,"public/js/buzzer/user.js"
           ,"public/js/buzzer/home.js"
           ,"public/js/buzzer/trick.js"
@@ -59,7 +59,7 @@ module.exports = function(grunt) {
       advertiser: {
         src: [
            "public/js/plugins/nprogress.js"
-          ,"public/js/advertiser/global.js"
+          ,"public/js/shared/global.js"
         ],
         dest: "public/js/advertiser.js"
       },
