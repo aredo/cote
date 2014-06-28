@@ -187,10 +187,22 @@ small, .small{font-size: @font-size-sm;}
 
 .dropdown-select > li > a input{position: absolute;left: -9999em;}
 
+.form-group {
+  label {
+    &.error {
+      display: none !important;
+    }
+  }
+}
 
 .form-control {
   .box-shadow(none) !important;
   border-radius: @border-radius-base;
+
+  &.error {
+    .transition(none);
+    border-color: lighten(@brand-danger, 10%)
+  }
 
   &:focus {
     border-color: @input-border-focus;

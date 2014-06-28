@@ -5,7 +5,7 @@ if (typeof App != "object") {
     window.App = {}
 }
 
-App.BaseUrl = location.protocol + '//' + location.host;
+App.BaseUrl = 'http://cdn.findbuzzer.local:8080';
 App.API_BaseUrl = 'http://api.findbuzzer.local:9696/v1';
 App.User = {};
 App.Mustache = $.Mustache;
@@ -24,8 +24,6 @@ if(window.isLogin) {
   if( _.isObject(currentUser) ) {
 
     App.User.session = currentUser;
-
-    console.log(App.User.session);
 
   } else {
     $.ajax({
@@ -59,3 +57,20 @@ $(window).load(function() {
   // executes when complete page is fully loaded, including all frames, objects and images
   NProgress.done();
 });
+
+$.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
