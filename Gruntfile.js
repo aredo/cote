@@ -58,8 +58,9 @@ module.exports = function(grunt) {
       },
       advertiser: {
         src: [
-           "public/js/plugins/nprogress.js"
-          ,"public/js/shared/global.js"
+            "public/js/plugins/nprogress.js"
+          , "public/js/shared/global.js"
+          , "public/js/advertiser/*.js"
         ],
         dest: "public/js/advertiser.js"
       },
